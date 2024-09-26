@@ -1,0 +1,12 @@
+services:
+  app-brackets-checker:
+    image: php:8.2-fpm
+    container_name: app-brackets-checker
+    volumes:
+      - ./:/var/www/html
+      - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+    environment:
+      XDEBUG_MODE: debug
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
