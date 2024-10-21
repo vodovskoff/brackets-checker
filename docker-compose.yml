@@ -1,4 +1,15 @@
 services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "18082:80"
+    volumes:
+      - ./public:/var/www/html/public
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app-brackets-checker
+
   app-brackets-checker:
     image: php:8.2-fpm
     container_name: app-brackets-checker
