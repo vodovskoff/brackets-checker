@@ -1,5 +1,5 @@
 test:
-	docker exec -it app-brackets-checker php /var/www/html/vendor/phpunit/phpunit/phpunit
+	docker exec -it app-brackets-checker php /var/www/html/vendor/bin/phpunit
 
 fix-cs:
 	docker exec -it app-brackets-checker vendor/bin/php-cs-fixer fix
