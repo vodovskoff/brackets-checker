@@ -1,3 +1,5 @@
+.PHONY: test fix-cs create start trace
+
 test:
 	docker exec -it app-brackets-checker php /var/www/html/vendor/bin/phpunit
 
@@ -11,11 +13,3 @@ create:
 
 start:
 	docker compose up -d
-
-enable-xdebug:
-	@docker-compose exec app-brackets-checker sed -i 's/xdebug.mode=off/xdebug.mode=debug/' /usr/local/etc/php/conf.d/xdebug.ini
-	@docker-compose restart app-brackets-checker
-
-disable-xdebug:
-	@docker-compose exec app-brackets-checker sed -i 's/xdebug.mode=debug/xdebug.mode=off/' /usr/local/etc/php/conf.d/xdebug.ini
-	@docker-compose restart app-brackets-checker

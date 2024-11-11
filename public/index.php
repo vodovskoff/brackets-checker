@@ -6,7 +6,7 @@ require_once '../vendor/autoload.php';
 
 $bracketsChecker = new BracketsChecker();
 
-$string = $_GET['string'];
+$string = $_GET['string'] ?? null;
 
 if (is_string($string)) {
     $result = $bracketsChecker->check($string) ? 'Правильна' : 'Неправильна';
